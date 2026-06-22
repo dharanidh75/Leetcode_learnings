@@ -1,0 +1,25 @@
+https://leetcode.com/problems/majority-element/
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        m = 0
+        c = 0
+        a = 0
+        nums.sort()
+        for i in range(len(nums)):
+            if i == len(nums) - 1:
+                if nums[i] == nums[i - 1]:
+                    c += 1
+                    if m < c and c >= len(nums) // 2:
+                        m = c
+                        c = 0
+                        a = nums[i]
+            elif nums[i] != nums[i + 1]:
+                c += 1
+                if m < c and c >= len(nums) // 2:
+                    m = c
+                    c = 0
+                    a = nums[i]
+            else:
+                c += 1
+        return a

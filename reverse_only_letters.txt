@@ -1,0 +1,20 @@
+https://leetcode.com/problems/reverse-only-letters/
+
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        i = 0
+        j = len(s) - 1
+        l = list(s)
+        while i < j:
+            if ((l[i] >= "a" and l[i] <="z") or (l[i] >= "A" and l[i] <= "Z")) and ((l[j] >= "a" and l[j] <="z") or (l[j] >= "A" and l[j] <= "Z")):
+                l[i], l[j] = l[j], l[i]
+                i += 1
+                j -= 1
+            elif ((l[i] >= "a" and l[i] <="z") or (l[i] >= "A" and l[i] <= "Z")):
+                j -= 1
+            elif ((l[j] >= "a" and l[j] <="z") or (l[j] >= "A" and l[j] <= "Z")):
+                i += 1
+            else:
+                i += 1
+                j -= 1
+        return "".join(l)

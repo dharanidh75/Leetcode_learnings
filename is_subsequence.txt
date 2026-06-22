@@ -1,0 +1,17 @@
+https://leetcode.com/problems/is-subsequence/
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        l = 0
+        r = 0
+        while r < len(t):
+            if l == len(s):
+                return True
+            elif s[l] == t[r]:
+                r += 1
+                l += 1
+            else:
+                r += 1
+        if l == len(s):
+            return True
+        return False

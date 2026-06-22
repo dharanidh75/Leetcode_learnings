@@ -1,0 +1,19 @@
+https://leetcode.com/problems/palindrome-number/
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        num = 0
+        X = x
+        flag = False
+        if x < 0:
+            return False
+        while x > 0:
+            l = x % 10
+            num *= 10
+            num += l
+            x //= 10
+        if flag:
+            num *= -1
+        if X == num:
+            return True
+        return False
